@@ -74,5 +74,19 @@ average([X|Xs], C, S, A):-
 	S2 is S +X,
 	average(Xs, C2, S2, A).
 
+%Es 2.5
+% max ( List , Max )
+% Max is the biggest element in List
+% Suppose the list has at least one element
+max([X|Xs], M):- max([X|Xs], M, X).
+max([], Tm, Tm).
+max([X|Xs], M, Tm):- Tm > X, max(Xs, M, Tm).
+max([X|Xs], M, Tm):- X >= Tm, max(Xs, M, X).
+%without tempMax
+max2([M], M).
+max2([X|Xs], Tmp):- max(Xs, Tmp), Tmp > X.
+max2([X|Xs], X):- max2(Xs, Tmp), X >= Tmp.
+
+	
 
 
