@@ -41,3 +41,23 @@ search_anytwo(X, [X|T]):- search(X, T).
 search_anytwo(X, [_|T]):- search_anytwo(X, T).
 %search_anytwo(a,[b,c,a,k,d,e]). → no
 %search_anytwo(a,[b,c,a,a,d,e]). → yes
+
+% -------- Part 2 --------
+%Es 2.1
+% size ( List , Size )
+%Size will contain the number of elements in List
+size([], 0) .
+size([_|Xs], N):- size(Xs, N2), N is N2 + 1.
+%size(L, 2).
+
+%Es 2.2
+% size ( List , Size )
+% Size will contain the number of elements in List,
+%	written using notation zero, s(zero), s(s(zero)) ..
+peanosize([], zero) .
+peanosize([_|Xs], s(N)):- peanosize(Xs, N).
+%peanosize([a,b,c], X). -> X/s(s(s(zero)))
+
+
+
+
