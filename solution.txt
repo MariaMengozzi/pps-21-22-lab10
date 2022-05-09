@@ -58,6 +58,21 @@ peanosize([], zero) .
 peanosize([_|Xs], s(N)):- peanosize(Xs, N).
 %peanosize([a,b,c], X). -> X/s(s(s(zero)))
 
+%Es 2.3
+% sum(List, Sum)
+sum([], 0).
+sum([H|T], N2):- sum(T, N), N2 is N + H.
+%sum ([1 ,2 ,3] , X )
+
+%Es 2.4
+%average ( List , Average )
+%it uses average ( List , Count , Sum , Average)
+average(List, A):- average(List, 0, 0, A).
+average([], C, S, A) :- A is S / C.
+average([X|Xs], C, S, A):-
+	C2 is C +1,
+	S2 is S +X,
+	average(Xs, C2, S2, A).
 
 
 
