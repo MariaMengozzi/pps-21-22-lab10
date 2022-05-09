@@ -119,3 +119,15 @@ all_bigger([X|Xs], [Y|Ys]):- X >= Y, all_bigger(Xs, Ys).
 sublist([], [H|_]).
 sublist([X|Xs], L2):- search(X, L2), sublist(Xs, L2).
 
+% -------- Part 4 --------
+%Es 4.1
+%seq (N , List )
+%example : seq (5 ,[0 ,0 ,0 ,0 ,0]) .
+seq(0 ,[]) .
+seq(N, [0|T]):- N2 is N-1, seq(N2, T).
+
+%Es 4.2
+% seqR (N , List )
+% example : seqR (4 ,[4 ,3 ,2 ,1 ,0]).
+seqR(0 ,[0]) .
+seqR(N, [N|T]):- N2 is N-1, seqR(N2, T).
