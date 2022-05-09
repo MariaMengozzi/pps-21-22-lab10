@@ -96,3 +96,22 @@ maxmin([X], X, X).
 maxmin([X|Xs], Tmax, Tmin):- maxmin(Xs, Tmax, Tmin), Tmax > X, Tmin < X.
 maxmin([X|Xs], X, Tmin):- maxmin(Xs, Tmax, Tmin), X >= Tmax, Tmin < X.
 maxmin([X|Xs], Tmax, X):- maxmin(Xs, Tmax, Tmin), Tmax > X, X =< Tmin.
+
+% -------- Part 3 --------
+%Es 3.1
+% same ( List1 , List2 )
+% are the two lists exactly the same ?
+same([] ,[]).
+same([X|Xs], [X|Ys]):- same(Xs, Ys).
+%same([1,2],L) -> L = [1,2]
+
+%Es 3.2
+% all_bigger ( List1 , List2 )
+% all elements in List1 are bigger than those in List2,1 by 1
+% example : all_bigger ([10 ,20 ,30 ,40] ,[9 ,19 ,29 ,39]).
+all_bigger([], []).
+all_bigger([X|Xs], [Y|Ys]):- X >= Y, all_bigger(Xs, Ys).
+
+
+
+
