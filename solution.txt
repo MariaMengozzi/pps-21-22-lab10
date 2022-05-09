@@ -112,6 +112,10 @@ same([X|Xs], [X|Ys]):- same(Xs, Ys).
 all_bigger([], []).
 all_bigger([X|Xs], [Y|Ys]):- X >= Y, all_bigger(Xs, Ys).
 
-
-
+%Es 3.3
+% sublist ( List1 , List2 )
+% List1 should contain elements all also in List2
+% example : sublist ([1 ,2] ,[5 ,3 ,2 ,1]) .
+sublist([], [H|_]).
+sublist([X|Xs], L2):- search(X, L2), sublist(Xs, L2).
 
