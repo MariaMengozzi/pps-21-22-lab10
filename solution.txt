@@ -87,6 +87,12 @@ max2([M], M).
 max2([X|Xs], Tmp):- max(Xs, Tmp), Tmp > X.
 max2([X|Xs], X):- max2(Xs, Tmp), X >= Tmp.
 
-	
-
-
+%Es 2.6
+%max ( List , Max , Min )
+%Max is the biggest element in List
+%Min is the smallest element in List
+%Suppose the list has at least one element
+maxmin([X], X, X).
+maxmin([X|Xs], Tmax, Tmin):- maxmin(Xs, Tmax, Tmin), Tmax > X, Tmin < X.
+maxmin([X|Xs], X, Tmin):- maxmin(Xs, Tmax, Tmin), X >= Tmax, Tmin < X.
+maxmin([X|Xs], Tmax, X):- maxmin(Xs, Tmax, Tmin), Tmax > X, X =< Tmin.
