@@ -131,3 +131,12 @@ seq(N, [0|T]):- N2 is N-1, seq(N2, T).
 % example : seqR (4 ,[4 ,3 ,2 ,1 ,0]).
 seqR(0 ,[0]) .
 seqR(N, [N|T]):- N2 is N-1, seqR(N2, T).
+
+%Es 4.3
+% seqR2 (N , List )
+% example : seqR2 (4 ,[0 ,1 ,2 ,3 ,4]).
+seqR2(N, List):- last(OldL, N, List).
+last([], 0, [0]).
+last(OldL, N, L) :- N2 is N-1, last([OldL,N], N2, L).
+
+
