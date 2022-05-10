@@ -138,3 +138,24 @@ seqR(N, [N|T]):- N2 is N-1, seqR(N2, T).
 seqR2(N, List):- last([], N, List).
 last(L, 0, [0|L]).
 last(L, N, Out):- N2 is N-1, last([N|L], N2, Out).
+
+% -------- Part 5 --------
+% last(List, E)
+% return the last element of a list
+% example: last([1,2,3], 3)
+last([E], E).
+last([X|Xs], E):- last(Xs,E).
+
+% map(L, Mapper, R)
+% mapper is applyed to L. Mapper must be a number that will be added to each element of L
+% example: map([1,2,3], 1, [2,3,4])
+map([], M, []).
+map([X|Xs], M, [X2|T]):- X2 is X+M, map(Xs, M, T).
+
+
+% filter(L, Pred, R)
+% filter a list L searching all the elements that are > Pred
+% example: filter([10,20,30,40], 20, [30,40])
+filter([], P, []).
+filter([X|Xs], P, [X|R]):- X > P, filter(Xs, P, R).
+filter([X|Xs], P, R):- X =< P, filter(Xs, P, R).
