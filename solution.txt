@@ -140,18 +140,17 @@ last(L, 0, [0|L]).
 last(L, N, Out):- N2 is N-1, last([N|L], N2, Out).
 
 % -------- Part 5 --------
-% last(List, E)
+% lastList([1,2,3], 3)(List, E)
 % return the last element of a list
-% example: last([1,2,3], 3)
-last([E], E).
-last([X|Xs], E):- last(Xs,E).
+% example: lastList([1,2,3], 3)
+lastList([E], E).
+lastList([X|Xs], E):- lastList(Xs,E).
 
 % map(L, Mapper, R)
 % mapper is applyed to L. Mapper must be a number that will be added to each element of L
 % example: map([1,2,3], 1, [2,3,4])
 map([], M, []).
 map([X|Xs], M, [X2|T]):- X2 is X+M, map(Xs, M, T).
-
 
 % filter(L, Pred, R)
 % filter a list L searching all the elements that are > Pred

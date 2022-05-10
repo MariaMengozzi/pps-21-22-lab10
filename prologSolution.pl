@@ -143,8 +143,8 @@ last(L, N, Out):- N2 is N-1, last([N|L], N2, Out).
 % last(List, E)
 % return the last element of a list
 % example: last([1,2,3], 3)
-last([E], E).
-last([X|Xs], E):- last(Xs,E).
+lastList([E], E).
+lastList([X|Xs], E):- lastList(Xs,E).
 
 % map(L, Mapper, R)
 % mapper is applyed to L. Mapper must be a number that will be added to each element of L
